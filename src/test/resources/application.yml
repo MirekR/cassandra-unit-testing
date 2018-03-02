@@ -4,4 +4,4 @@ spring:
     cassandra:
       keyspace-name: mirek
       contact-points: 127.0.0.1
-      port: 9152
+      port: 9142
