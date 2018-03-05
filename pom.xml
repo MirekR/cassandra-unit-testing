@@ -134,6 +134,20 @@
 							<file>${basedir}/libs/hector-core-${hector.version}.jar</file>
 						</configuration>
 					</execution>
+					<execution>
+						<id>hector-core</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<groupId>net.mintern</groupId>
+							<artifactId>primitive</artifactId>
+							<version>1.0</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/libs/primitive-1.0.jar</file>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
 		</plugins>
