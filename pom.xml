@@ -135,7 +135,7 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>hector-core</id>
+						<id>primitive</id>
 						<phase>initialize</phase>
 						<goals>
 							<goal>install-file</goal>
