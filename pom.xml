@@ -22,6 +22,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<cassandra-unit.version>3.1.1.0</cassandra-unit.version>
+		<hector.version>2.0-0</hector.version>
 	</properties>
 
 	<dependencies>
@@ -53,7 +55,7 @@
 		<dependency>
 			<groupId>org.cassandraunit</groupId>
 			<artifactId>cassandra-unit-spring</artifactId>
-			<version>3.1.1.0</version>
+			<version>${cassandra-unit.version}</version>
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
@@ -66,18 +68,13 @@
 			<groupId>org.cassandraunit</groupId>
 			<artifactId>cassandra-unit</artifactId>
 			<classifier>shaded</classifier>
-			<version>3.1.1.0</version>
+			<version>${cassandra-unit.version}</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.cassandraunit</groupId>
-			<artifactId>cassandra-unit-spring</artifactId>
-			<version>3.1.1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hectorclient</groupId>
 			<artifactId>hector-core</artifactId>
-			<version>2.0-0</version>
+			<version>${hector.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -89,7 +86,56 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<id>cassandra-unit</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<groupId>org.cassandraunit</groupId>
+							<artifactId>cassandra-unit</artifactId>
+							<classifier>shaded</classifier>
+							<version>${cassandra-unit.version}</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/libs/cassandra-unit-${cassandra-unit.version}-shaded.jar</file>
+						</configuration>
+					</execution>
+					<execution>
+						<id>cassandra-unit-spring</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<groupId>org.cassandraunit</groupId>
+							<artifactId>cassandra-unit-spring</artifactId>
+							<version>${cassandra-unit.version}</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/libs/cassandra-unit-spring-${cassandra-unit.version}.jar</file>
+						</configuration>
+					</execution>
+					<execution>
+						<id>hector-core</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<groupId>org.hectorclient</groupId>
+							<artifactId>hector-core</artifactId>
+							<version>${hector.version}</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/libs/hector-core-${hector.version}.jar</file>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
-
 </project>
