@@ -5,17 +5,18 @@
 
 	<groupId>cz.mirek</groupId>
 	<artifactId>cassandra-unit-testing</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${parent.version}</version>
+
 	<packaging>jar</packaging>
 
 	<name>cassandra-unit-testing</name>
 	<description>Demo how to unit test with Cassandra</description>
 
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.10.RELEASE</version>
-		<relativePath/>
+		<groupId>cz.mirek</groupId>
+		<artifactId>cassandra-unit-testing-lib</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>pom-lib.xml</relativePath>
 	</parent>
 
 	<properties>
