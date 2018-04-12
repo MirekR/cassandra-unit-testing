@@ -21,7 +21,8 @@ import static org.junit.Assert.assertThat;
 public class EmbededCassandraTest {
     @Before
     public void before() throws TTransportException, IOException, InterruptedException, ConfigurationException {
-        EmbeddedCassandraServerHelper.startEmbeddedCassandra("cassandra.yaml", 20000);
+        //EmbeddedCassandraServerHelper.startEmbeddedCassandra("cassandra.yaml", 20000);
+        EmbeddedCassandraServerHelper.startEmbeddedCassandra(20000);
     }
 
     @Test
