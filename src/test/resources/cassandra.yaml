@@ -266,7 +266,7 @@ start_native_transport: true
 native_transport_port: 9152
 
 # Whether to start the thrift rpc server.
-start_rpc: false
+start_rpc: true
 
 # Address to broadcast to other Cassandra nodes
 # Leaving this blank will set it to the same value as listen_address
@@ -278,7 +278,7 @@ start_rpc: false
 #
 # Leaving this blank has the same effect it does for ListenAddress,
 # (i.e. it will be based on the configured hostname of the node).
-rpc_address: localhost
+rpc_address: 127.0.0.1
 # port for Thrift to listen for clients on
 rpc_port: 9175
 
@@ -559,12 +559,12 @@ index_interval: 128
 # the keystore and truststore.  For instructions on generating these files, see:
 # http://download.oracle.com/javase/6/docs/technotes/guides/security/jsse/JSSERefGuide.html#CreateKeystore
 #
-encryption_options:
-    internode_encryption: none
-    keystore: conf/.keystore
-    keystore_password: cassandra
-    truststore: conf/.truststore
-    truststore_password: cassandra
+#encryption_options:
+#    internode_encryption: none
+#    keystore: conf/.keystore
+#    keystore_password: cassandra
+#    truststore: conf/.truststore
+#    truststore_password: cassandra
     # More advanced defaults below:
     # protocol: TLS
     # algorithm: SunX509
