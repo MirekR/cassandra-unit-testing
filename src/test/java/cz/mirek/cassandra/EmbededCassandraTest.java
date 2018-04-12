@@ -1,5 +1,6 @@
 package cz.mirek.cassandra;
 
+import cz.mirek.cassandra.bugfix.EmbeddedCassandraServerHelperBugFix;
 import me.prettyprint.cassandra.service.CassandraHostConfigurator;
 import me.prettyprint.hector.api.Cluster;
 import me.prettyprint.hector.api.ddl.KeyspaceDefinition;
@@ -22,7 +23,7 @@ public class EmbededCassandraTest {
     @Before
     public void before() throws TTransportException, IOException, InterruptedException, ConfigurationException {
         //EmbeddedCassandraServerHelper.startEmbeddedCassandra("cassandra.yaml", 20000);
-        EmbeddedCassandraServerHelper.startEmbeddedCassandra(200000);
+        EmbeddedCassandraServerHelperBugFix.startEmbeddedCassandra("cassandra.yaml", 20000);
     }
 
     @Test
