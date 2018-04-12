@@ -266,7 +266,7 @@ start_native_transport: true
 native_transport_port: 9152
 
 # Whether to start the thrift rpc server.
-start_rpc: true
+start_rpc: false
 
 # Address to broadcast to other Cassandra nodes
 # Leaving this blank will set it to the same value as listen_address
