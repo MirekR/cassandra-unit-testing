@@ -357,12 +357,12 @@ public class EmbeddedCassandraServerHelperBugFix {
         cleanup();
         mkdirs();
         CommitLog commitLog = CommitLog.instance;
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        commitLog.resetUnsafe(true);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        commitLog.resetUnsafe(true);
     }
 
     private static void cleanup() throws IOException {
