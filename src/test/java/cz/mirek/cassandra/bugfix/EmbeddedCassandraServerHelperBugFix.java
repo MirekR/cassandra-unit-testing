@@ -109,6 +109,7 @@ public class EmbeddedCassandraServerHelperBugFix {
 
             try {
                 long xxx = 201111;
+                log.error("aaaaaaaaaaaaaaaadfgsdflgksdflgkslfdkg;lskdf;l");
                 if (!startupLatch.await(xxx, TimeUnit.MILLISECONDS)) {
                     log.error("Cassandra daemon did not start after " + xxx + " ms. Consider increasing the timeout");
                     throw new AssertionError("Cassandra daemon did not start within timeout");
