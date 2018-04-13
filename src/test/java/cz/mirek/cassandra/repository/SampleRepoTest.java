@@ -2,6 +2,7 @@ package cz.mirek.cassandra.repository;
 
 import com.datastax.driver.core.Session;
 import cz.mirek.cassandra.CassandraApplication;
+import cz.mirek.cassandra.bugfix.EmbeddedCassandraServerHelperBugFix;
 import cz.mirek.cassandra.domain.Sample;
 import org.apache.thrift.transport.TTransportException;
 import org.cassandraunit.utils.EmbeddedCassandraServerHelper;
@@ -29,7 +30,7 @@ public class SampleRepoTest {
 
     @BeforeClass
     public static void initDb() throws IOException, TTransportException {
-        EmbeddedCassandraServerHelper.startEmbeddedCassandra("cassandra.yaml", 20000);
+        EmbeddedCassandraServerHelperBugFix.startEmbeddedCassandra("cassandra.yaml", 2000000);
 
         Session session = EmbeddedCassandraServerHelper.getCluster().connect();
         session.execute("create keyspace  \"mirek\" WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3};");
