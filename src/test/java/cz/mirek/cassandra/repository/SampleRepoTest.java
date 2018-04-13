@@ -5,7 +5,6 @@ import cz.mirek.cassandra.CassandraApplication;
 import cz.mirek.cassandra.bugfix.EmbeddedCassandraServerHelperBugFix;
 import cz.mirek.cassandra.domain.Sample;
 import org.apache.thrift.transport.TTransportException;
-import org.cassandraunit.utils.EmbeddedCassandraServerHelper;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,7 +31,7 @@ public class SampleRepoTest {
     public static void initDb() throws IOException, TTransportException {
         EmbeddedCassandraServerHelperBugFix.startEmbeddedCassandra("cassandra.yaml", 2000000);
 
-        Session session = EmbeddedCassandraServerHelper.getCluster().connect();
+        Session session = EmbeddedCassandraServerHelperBugFix.getCluster().connect();
         session.execute("create keyspace  \"mirek\" WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3};");
         session.execute("create table mirek.sample (id VARCHAR, PRIMARY KEY (id))");
         session.execute("insert into mirek.sample (id) values ('test')");
